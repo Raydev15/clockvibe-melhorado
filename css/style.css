@@ -1,0 +1,1238 @@
+/* ============================================
+   ClockVibe — Estilos Globais (Versão Melhorada)
+   Projeto ADS — 1º Semestre
+   Melhorias: Google Fonts (Poppins), sombras suaves,
+   scroll suave, glassmorphism, animação de pulso
+   ============================================ */
+
+/* Scroll suave em toda a página */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de cor — Versão Clara e Moderna */
+:root {
+    --cor-primaria: #f0f4ff;       /* fundo geral: azul bem claro */
+    --cor-secundaria: #e8edf8;     /* fundo alternado: levemente mais escuro */
+    --cor-destaque: #e94560;       /* vermelho-rosa vibrante */
+    --cor-destaque2: #2d4a8a;      /* azul médio para gradientes */
+    --cor-texto: #1a2340;          /* texto principal: azul-escuro legível */
+    --cor-texto-suave: #5a6a8a;    /* texto secundário: azul-acinzentado */
+    --cor-branco: #ffffff;
+    --cor-card: #ffffff;           /* cards brancos com sombra */
+    --cor-borda: #d0d8ee;          /* borda suave azulada */
+    /* Fonte melhorada: Poppins do Google Fonts */
+    --fonte-principal: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Corpo da página */
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* ============================================
+   CABEÇALHO / NAVEGAÇÃO
+   ============================================ */
+
+header {
+    background-color: rgba(255, 255, 255, 0.88);
+    /* Glassmorphism no header */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(233, 69, 96, 0.25);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-icone {
+    font-size: 28px;
+}
+
+.logo-texto {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--cor-texto);
+    letter-spacing: 1px;
+}
+
+.logo-texto span {
+    color: var(--cor-destaque);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+    letter-spacing: 0.5px;
+}
+
+nav ul li a:hover,
+nav ul li a.ativo {
+    color: var(--cor-destaque);
+    border-bottom-color: var(--cor-destaque);
+}
+
+/* ============================================
+   HERO — SEÇÃO PRINCIPAL
+   ============================================ */
+
+.hero {
+    background: linear-gradient(135deg, #1a2a5e 0%, #2d4a8a 50%, #e94560 100%);
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background-color: var(--cor-destaque);
+    color: var(--cor-branco);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--cor-branco);
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.hero h1 span {
+    color: var(--cor-destaque);
+}
+
+.hero p {
+    font-size: 17px;
+    color: var(--cor-texto-suave);
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+/* Relógio decorativo com animação de pulso */
+.relogio-demo {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(233, 69, 96, 0.5);
+    border-radius: 20px;
+    padding: 30px 50px;
+    display: inline-block;
+    margin-bottom: 35px;
+    /* Glassmorphism */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Animação de pulso */
+    animation: pulso 3s infinite ease-in-out;
+}
+
+/* Animação de pulso — @keyframes */
+@keyframes pulso {
+    0%   { transform: scale(1);    box-shadow: 0 0 20px rgba(233, 69, 96, 0.2); }
+    50%  { transform: scale(1.02); box-shadow: 0 0 45px rgba(233, 69, 96, 0.5); }
+    100% { transform: scale(1);    box-shadow: 0 0 20px rgba(233, 69, 96, 0.2); }
+}
+
+.relogio-demo .hora {
+    font-size: 64px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    color: var(--cor-destaque);
+    font-variant-numeric: tabular-nums;
+}
+
+.relogio-demo .data {
+    font-size: 14px;
+    color: var(--cor-texto-suave);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+/* ============================================
+   BOTÕES (arredondados — pill style)
+   ============================================ */
+
+.btn {
+    display: inline-block;
+    padding: 13px 32px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primario {
+    background-color: var(--cor-destaque);
+    color: var(--cor-branco);
+}
+
+.btn-primario:hover {
+    background-color: #c73652;
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: var(--cor-branco);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.btn-secundario:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--cor-branco);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--cor-destaque);
+    border: 2px solid var(--cor-destaque);
+}
+
+.btn-outline:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-branco);
+}
+
+.grupo-botoes {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   SEÇÕES GERAIS
+   ============================================ */
+
+section {
+    padding: 70px 40px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-secao h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--cor-texto);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.titulo-secao h2 span {
+    color: var(--cor-destaque);
+}
+
+.titulo-secao p {
+    font-size: 15px;
+    color: var(--cor-texto-suave);
+    max-width: 550px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+.linha-divisoria {
+    width: 50px;
+    height: 3px;
+    background-color: var(--cor-destaque);
+    margin: 14px auto 18px;
+    border-radius: 2px;
+}
+
+/* ============================================
+   CARDS (com sombras suaves melhoradas)
+   ============================================ */
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background-color: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+    padding: 30px;
+    /* Sombra suave em camadas */
+    box-shadow: 0 4px 20px rgba(45, 74, 138, 0.08), 0 1px 4px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(233, 69, 96, 0.3);
+    /* Sombra mais intensa no hover */
+    box-shadow: 0 20px 40px -8px rgba(45, 74, 138, 0.18), 0 8px 16px -4px rgba(233, 69, 96, 0.12);
+}
+
+.card-icone {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cor-texto);
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: var(--cor-texto-suave); /* já é azul-acinzentado legível */
+    line-height: 1.75;
+    font-weight: 400;
+}
+
+/* ============================================
+   SEÇÃO DE PROBLEMAS E SOLUÇÕES
+   ============================================ */
+
+.secao-escura {
+    background-color: #e8edf8;
+}
+
+.problema-item {
+    background-color: #ffffff;
+    backdrop-filter: none;
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 25px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.problema-item:hover {
+    transform: translateX(4px);
+}
+
+.problema-item h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--cor-texto);
+    margin-bottom: 6px;
+}
+
+.problema-item p {
+    font-size: 14px;
+    color: var(--cor-texto-suave);
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.solucao-tag {
+    display: inline-block;
+    background-color: rgba(233, 69, 96, 0.12);
+    color: var(--cor-destaque);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 50px;
+    border: 1px solid rgba(233, 69, 96, 0.4);
+}
+
+/* ============================================
+   TEMAS DE RELÓGIO
+   ============================================ */
+
+.grade-temas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.tema-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--cor-borda);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+
+.tema-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(233, 69, 96, 0.5);
+    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.5);
+}
+
+.tema-preview {
+    padding: 30px 20px;
+    text-align: center;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tema-preview .hora-tema {
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tema-preview .data-tema {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* Tema Noturno */
+.tema-noturno .tema-preview {
+    background: linear-gradient(135deg, #0d0d1a, #1a0533);
+}
+.tema-noturno .hora-tema { color: #e94560; }
+.tema-noturno .data-tema { color: #a080c0; }
+
+/* Tema Oceano */
+.tema-oceano .tema-preview {
+    background: linear-gradient(135deg, #0a1628, #0d3b6e);
+}
+.tema-oceano .hora-tema { color: #4fc3f7; }
+.tema-oceano .data-tema { color: #81d4fa; }
+
+/* Tema Floresta */
+.tema-floresta .tema-preview {
+    background: linear-gradient(135deg, #0d1f0d, #1b4332);
+}
+.tema-floresta .hora-tema { color: #69f0ae; }
+.tema-floresta .data-tema { color: #a5d6a7; }
+
+/* Tema Pôr do Sol */
+.tema-pordosol .tema-preview {
+    background: linear-gradient(135deg, #1a0a00, #3d1a00);
+}
+.tema-pordosol .hora-tema { color: #ff9800; }
+.tema-pordosol .data-tema { color: #ffcc80; }
+
+/* Tema Minimalista */
+.tema-minimalista .tema-preview {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+}
+.tema-minimalista .hora-tema { color: #ffffff; }
+.tema-minimalista .data-tema { color: #888888; }
+
+/* Tema Neon */
+.tema-neon .tema-preview {
+    background: linear-gradient(135deg, #000000, #0a0a1a);
+}
+.tema-neon .hora-tema { color: #00ff88; text-shadow: 0 0 12px #00ff88; }
+.tema-neon .data-tema { color: #00ccff; text-shadow: 0 0 6px #00ccff; }
+
+/* Tema Hello Kitty */
+.tema-hellokitty .tema-preview {
+    background: linear-gradient(135deg, #ffe0f0, #ffb3d9);
+}
+.tema-hellokitty .hora-tema { color: #d63384; font-weight: 700; }
+.tema-hellokitty .data-tema { color: #e91e8c; }
+.tema-hellokitty .tema-preview::after {
+    content: '🎀';
+    font-size: 26px;
+    display: block;
+    margin-top: 8px;
+}
+
+/* Tema Galáxia */
+.tema-galaxia .tema-preview {
+    background: linear-gradient(135deg, #0d0221, #1a0533, #2d1b69);
+}
+.tema-galaxia .hora-tema { color: #e040fb; text-shadow: 0 0 14px #e040fb; }
+.tema-galaxia .data-tema { color: #b39ddb; }
+
+/* Glassmorphism na info do tema */
+.tema-info {
+    background-color: #ffffff;
+    backdrop-filter: none;
+    border-top: 1px solid var(--cor-borda);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tema-info h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cor-texto);
+}
+
+.tema-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.badge-gratis {
+    background-color: rgba(105, 240, 174, 0.12);
+    color: #69f0ae;
+    border: 1px solid rgba(105, 240, 174, 0.4);
+}
+
+.badge-premium {
+    background-color: rgba(233, 69, 96, 0.12);
+    color: var(--cor-destaque);
+    border: 1px solid rgba(233, 69, 96, 0.4);
+}
+
+/* ============================================
+   PLANOS DE ASSINATURA
+   ============================================ */
+
+.grade-planos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.plano-card {
+    background-color: #ffffff;
+    backdrop-filter: none;
+    border: 1px solid var(--cor-borda);
+    border-radius: 20px;
+    padding: 35px 30px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plano-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.4);
+}
+
+.plano-card.destaque {
+    border-color: rgba(233, 69, 96, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px -8px rgba(233, 69, 96, 0.25);
+}
+
+.plano-card.destaque:hover {
+    transform: scale(1.05) translateY(-6px);
+}
+
+.plano-popular {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--cor-destaque);
+    color: var(--cor-branco);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 18px;
+    border-radius: 50px;
+}
+
+.plano-nome {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cor-texto-suave);
+    margin-bottom: 15px;
+}
+
+.plano-preco {
+    margin-bottom: 25px;
+}
+
+.plano-preco .cifrao {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--cor-texto-suave);
+    vertical-align: top;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.plano-preco .valor {
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--cor-texto);
+    line-height: 1;
+}
+
+.plano-preco .periodo {
+    font-size: 13px;
+    color: var(--cor-texto-suave);
+    display: block;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+.plano-lista {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.plano-lista li {
+    font-size: 13px;
+    color: var(--cor-texto-suave);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(42, 58, 92, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+}
+
+.plano-lista li:last-child {
+    border-bottom: none;
+}
+
+.plano-lista li::before {
+    content: "✓";
+    color: #69f0ae;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.plano-lista li.indisponivel {
+    opacity: 0.35;
+}
+
+.plano-lista li.indisponivel::before {
+    content: "✗";
+    color: var(--cor-destaque);
+}
+
+/* ============================================
+   RODAPÉ
+   ============================================ */
+
+footer {
+    background-color: #1a2340;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 40px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.footer-logo span {
+    color: var(--cor-destaque);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.3s;
+    letter-spacing: 0.3px;
+}
+
+.footer-links a:hover {
+    color: var(--cor-destaque);
+}
+
+.footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 400;
+}
+
+/* ============================================
+   PAGE HERO
+   ============================================ */
+
+.page-hero {
+    background: linear-gradient(135deg, #1a2a5e, #2d4a8a);
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.page-hero h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.page-hero h1 span {
+    color: var(--cor-destaque);
+}
+
+.page-hero p {
+    font-size: 15px;
+    color: var(--cor-texto-suave);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* ============================================
+   TABELA DE PROBLEMAS
+   ============================================ */
+
+.tabela-problemas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+.tabela-problemas th {
+    background-color: var(--cor-destaque2);
+    color: var(--cor-branco);
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.tabela-problemas td {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--cor-borda);
+    font-size: 13px;
+    color: var(--cor-texto-suave);
+    vertical-align: top;
+    font-weight: 400;
+}
+
+.tabela-problemas tr:hover td {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.tag-cliente {
+    background-color: rgba(79, 195, 247, 0.12);
+    color: #4fc3f7;
+    border: 1px solid rgba(79, 195, 247, 0.4);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.tag-empresa {
+    background-color: rgba(255, 152, 0, 0.12);
+    color: #ff9800;
+    border: 1px solid rgba(255, 152, 0, 0.4);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* ============================================
+   UTILITÁRIOS
+   ============================================ */
+
+.texto-destaque { color: var(--cor-destaque); }
+.texto-suave    { color: var(--cor-texto-suave); }
+.margem-topo    { margin-top: 30px; }
+.centralizado   { text-align: center; }
+
+.separador {
+    height: 1px;
+    background-color: var(--cor-borda);
+    margin: 40px 0;
+}
+
+/* ============================================
+   RESPONSIVIDADE — MEDIA QUERIES
+   Funciona em celular, tablet e desktop
+   ============================================ */
+
+/* ---- TABLET (até 900px) ---- */
+@media (max-width: 900px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .relogio-demo .hora {
+        font-size: 48px;
+        letter-spacing: 5px;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grade-temas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grade-planos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .plano-card.destaque {
+        transform: scale(1);
+    }
+
+    .plano-card.destaque:hover {
+        transform: translateY(-6px);
+    }
+}
+
+/* ---- CELULAR (até 600px) ---- */
+@media (max-width: 600px) {
+
+    /* Header */
+    header {
+        padding: 0 20px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .relogio-demo {
+        padding: 20px 30px;
+    }
+
+    .relogio-demo .hora {
+        font-size: 38px;
+        letter-spacing: 4px;
+    }
+
+    .relogio-demo .data {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .grupo-botoes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Seções */
+    section {
+        padding: 50px 20px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 24px;
+    }
+
+    /* Grids — tudo em 1 coluna no celular */
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .grade-temas {
+        grid-template-columns: 1fr;
+    }
+
+    /* Planos — 1 coluna */
+    .grade-planos {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .plano-card.destaque {
+        transform: scale(1);
+    }
+
+    /* Page hero */
+    .page-hero {
+        padding: 40px 20px;
+    }
+
+    .page-hero h1 {
+        font-size: 26px;
+    }
+
+    /* Tabela — scroll horizontal no celular */
+    .tabela-problemas {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Rodapé */
+    footer {
+        padding: 30px 20px;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+}
+
+/* ============================================
+   MELHORIAS VISUAIS EXTRAS — ClockVibe
+   ============================================ */
+
+/* Label "AO VIVO" no relógio */
+.relogio-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #69f0ae;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* Seção de estatísticas */
+.secao-stats {
+    background: linear-gradient(135deg, #1a2a5e, #2d4a8a);
+    padding: 40px;
+    border-top: 1px solid rgba(233,69,96,0.2);
+    border-bottom: 1px solid rgba(233,69,96,0.2);
+}
+
+.stats-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-box {
+    padding: 20px;
+}
+
+.stat-numero {
+    display: block;
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--cor-destaque);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: var(--cor-texto-suave);
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+/* FAQ cards com ícone lateral */
+.faq-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-icone {
+    width: 44px;
+    height: 44px;
+    background: rgba(233, 69, 96, 0.12);
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-destaque);
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-bottom: 5px;
+}
+
+/* CTA Final */
+.cta-final {
+    background: linear-gradient(135deg, var(--cor-destaque) 0%, #c0304a 100%);
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.cta-icone {
+    font-size: 52px;
+    margin-bottom: 20px;
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+}
+
+.cta-final h2 {
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--cor-branco);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.cta-final p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+.btn-branco-solido {
+    background-color: var(--cor-branco);
+    color: var(--cor-destaque);
+    border: 2px solid var(--cor-branco);
+    font-weight: 700;
+}
+
+.btn-branco-solido:hover {
+    background-color: transparent;
+    color: var(--cor-branco);
+}
+
+.btn-outline-branco {
+    background-color: transparent;
+    color: var(--cor-branco);
+    border: 2px solid rgba(255,255,255,0.7);
+}
+
+.btn-outline-branco:hover {
+    background-color: rgba(255,255,255,0.15);
+    border-color: var(--cor-branco);
+}
+
+/* Responsivo para stats */
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .stat-numero {
+        font-size: 28px;
+    }
+    .cta-final {
+        padding: 55px 20px;
+    }
+    .cta-final h2 {
+        font-size: 24px;
+    }
+}
+
+/* ============================================
+   NOVOS TEMAS E MELHORIAS VISUAIS
+   ============================================ */
+
+/* Logo com caixa de ícone */
+.logo-icone-box {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--cor-destaque), #c0304a);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(233, 69, 96, 0.35);
+}
+
+/* Ícone de tipo dentro do preview do tema */
+.tema-icone-tipo {
+    font-size: 18px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+/* Detalhe extra abaixo da data no tema */
+.tema-detalhe-extra {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+/* Tema Rosé Gold — NOVO */
+.tema-rosegold .tema-preview {
+    background: linear-gradient(135deg, #2c1810, #4a2c1a, #6b3a28);
+}
+.tema-rosegold .hora-tema { color: #e8c49a; font-weight: 600; }
+.tema-rosegold .data-tema { color: #c9956c; }
+
+/* Tema Aquarela Pastel — NOVO */
+.tema-aquarela .tema-preview {
+    background: linear-gradient(135deg, #1a0a2e, #2d1b4e, #1a1040);
+}
+.tema-aquarela .hora-tema { color: #ff9ec7; font-weight: 600; }
+.tema-aquarela .data-tema { color: #c77dff; }
+
+/* Tema Inverno Ártico — NOVO */
+.tema-artico .tema-preview {
+    background: linear-gradient(135deg, #0a1a2e, #0d2a4a, #0a1e38);
+}
+.tema-artico .hora-tema { color: #a8d8ea; font-weight: 300; letter-spacing: 6px; }
+.tema-artico .data-tema { color: #7ab8d4; }
+
+/* Tema Café & Bege — NOVO */
+.tema-cafe .tema-preview {
+    background: linear-gradient(135deg, #1a0f08, #2d1f12, #3d2a18);
+}
+.tema-cafe .hora-tema { color: #d4b896; font-weight: 600; }
+.tema-cafe .data-tema { color: #b8956a; }
+
+/* Ajuste na grade de temas para 3 colunas com mais temas */
+.grade-temas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+/* Responsivo para novos temas */
+@media (max-width: 900px) {
+    .grade-temas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .grade-temas {
+        grid-template-columns: 1fr;
+    }
+    .logo-icone-box {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+}
