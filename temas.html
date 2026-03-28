@@ -4,387 +4,347 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temas — ClockVibe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* ===== ESTILOS DOS TEMAS CLICÁVEIS ===== */
+        .relogio-ao-vivo {
+            background: #16213e;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 0 auto 40px;
+            max-width: 500px;
+            transition: all 0.5s ease;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .relogio-ao-vivo .hora {
+            font-family: 'Orbitron', monospace;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            transition: all 0.5s;
+        }
+
+        .relogio-ao-vivo .data-live {
+            font-size: 14px;
+            margin-top: 8px;
+            opacity: 0.7;
+            transition: all 0.5s;
+        }
+
+        .relogio-ao-vivo .tema-nome-live {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 12px;
+            opacity: 0.6;
+        }
+
+        /* Botões de tema */
+        .tema-btn {
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tema-btn:hover {
+            border-color: var(--cor-primaria);
+            transform: translateY(-5px);
+        }
+
+        .tema-btn.ativo {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255,215,0,0.4);
+        }
+
+        .tema-btn.ativo .tema-info h3::after {
+            content: ' ✓';
+            color: #ffd700;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ===== CABEÇALHO ===== -->
+    <!-- CABEÇALHO -->
     <header>
-        <div class="header-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icone-box">
-                    <i class="fa-solid fa-clock"></i>
-                </div>
-                <span class="logo-texto">Clock<span>Vibe</span></span>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="temas.html" class="ativo">Temas</a></li>
-                    <li><a href="planos.html">Planos</a></li>
-                </ul>
-            </nav>
-        </div>
+        <a href="index.html" class="logo">
+            <div class="logo-icone"><i class="fa-solid fa-clock"></i></div>
+            Clock<span>Vibe</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="temas.html" class="ativo">Temas</a></li>
+                <li><a href="planos.html">Planos</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- ===== HERO DA PÁGINA ===== -->
-    <div class="page-hero">
-        <h1>Galeria de <span>Temas</span></h1>
-        <p>Escolha o visual perfeito para o seu relógio. Temas gratuitos e premium disponíveis.</p>
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Escolha seu <span>Tema</span></h1>
+        <p>Clique em qualquer tema abaixo e veja o relógio mudar na hora!</p>
     </div>
 
-    <!-- ===== TEMAS GRATUITOS ===== -->
+    <!-- RELÓGIO AO VIVO -->
     <section>
         <div class="container">
+            <div class="titulo-secao">
+                <h2>Seu Relógio <span>ao Vivo</span></h2>
+                <p>Clique nos temas abaixo para ver a prévia em tempo real.</p>
+            </div>
+
+            <div class="relogio-ao-vivo" id="relogio-preview">
+                <div class="hora" id="hora-live">00:00:00</div>
+                <div class="data-live" id="data-live">Carregando...</div>
+                <div class="tema-nome-live" id="tema-nome-live">Tema: Noite Azul</div>
+            </div>
+
+            <!-- TEMAS GRATUITOS -->
             <div class="titulo-secao">
                 <h2>Temas <span>Gratuitos</span></h2>
-                <div class="linha-divisoria"></div>
-                <p>Disponíveis para todos os usuários, sem necessidade de assinatura.</p>
+                <p>Disponíveis para todos os usuários sem custo.</p>
             </div>
+            <div class="temas-grid" style="margin-bottom:40px;">
 
-            <div class="grade-temas">
-
-                <!-- Noturno Clássico -->
-                <div class="tema-card tema-noturno">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo"><i class="fa-solid fa-moon"></i></div>
-                        <div class="hora-tema">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                    </div>
+                <div class="tema-card tema-btn ativo" onclick="aplicarTema(this, '#16213e', '#ffffff', '#e63946', 'Noite Azul', 'monospace')">
+                    <div class="tema-preview" style="background:#16213e; color:#fff; font-family:monospace;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Noturno Clássico</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Fundo escuro, detalhes em vermelho</p>
-                        </div>
-                        <span class="tema-badge badge-gratis"><i class="fa-solid fa-check"></i> Grátis</span>
+                        <h3>Noite Azul</h3>
+                        <p>Fundo escuro com texto branco. Clássico e elegante.</p>
+                        <span class="tag-gratis">Gratuito</span>
                     </div>
                 </div>
 
-                <!-- Oceano Profundo -->
-                <div class="tema-card tema-oceano">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo"><i class="fa-solid fa-water"></i></div>
-                        <div class="hora-tema">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                    </div>
+                <div class="tema-card tema-btn" onclick="aplicarTema(this, '#ffffff', '#1d3557', '#e63946', 'Minimalista Branco', 'sans-serif')">
+                    <div class="tema-preview" style="background:#ffffff; color:#1d3557; border-bottom:1px solid #eee;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Oceano Profundo</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Tons de azul e ciano</p>
-                        </div>
-                        <span class="tema-badge badge-gratis"><i class="fa-solid fa-check"></i> Grátis</span>
+                        <h3>Minimalista Branco</h3>
+                        <p>Fundo branco limpo com texto escuro. Simples e moderno.</p>
+                        <span class="tag-gratis">Gratuito</span>
                     </div>
                 </div>
 
-                <!-- Minimalista -->
-                <div class="tema-card tema-minimalista">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo" style="color: #999;"><i class="fa-solid fa-circle-half-stroke"></i></div>
-                        <div class="hora-tema">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                    </div>
+                <div class="tema-card tema-btn" onclick="aplicarTema(this, '#1a1a1a', '#00ff41', '#00ff41', 'Terminal Verde', 'monospace')">
+                    <div class="tema-preview" style="background:#1a1a1a; color:#00ff41; font-family:monospace;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Minimalista</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Preto e branco, sem distrações</p>
-                        </div>
-                        <span class="tema-badge badge-gratis"><i class="fa-solid fa-check"></i> Grátis</span>
+                        <h3>Terminal Verde</h3>
+                        <p>Estilo hacker com fundo preto e texto verde neon.</p>
+                        <span class="tag-gratis">Gratuito</span>
                     </div>
                 </div>
 
             </div>
-        </div>
-    </section>
 
-    <!-- ===== TEMAS PREMIUM ===== -->
-    <section class="secao-escura">
-        <div class="container">
+            <!-- TEMAS PREMIUM -->
             <div class="titulo-secao">
                 <h2>Temas <span>Premium</span></h2>
-                <div class="linha-divisoria"></div>
-                <p>Temas exclusivos disponíveis nos planos Básico e Pro. Designs únicos e animações especiais.</p>
+                <p>Disponíveis nos planos Básico e Pro. Clique para ver a prévia!</p>
             </div>
+            <div class="temas-grid">
 
-            <div class="grade-temas">
-
-                <!-- Hello Kitty -->
-                <div class="tema-card tema-hellokitty">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo" style="color:#d63384; font-size:22px;">🎀</div>
-                        <div class="hora-tema" style="font-family: 'Poppins', sans-serif; font-weight:700;">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                        <div class="tema-detalhe-extra">✿ Hello Kitty ✿</div>
-                    </div>
+                <div class="tema-card tema-btn" onclick="aplicarTema(this, 'linear-gradient(135deg,#ffb6c1,#ff69b4)', '#fff', '#fff', 'Hello Kitty 🎀', 'sans-serif')">
+                    <div class="tema-preview" style="background:linear-gradient(135deg,#ffb6c1,#ff69b4); color:#fff;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Hello Kitty 🎀</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Rosa fofo com laço e detalhes cute</p>
-                        </div>
-                        <span class="tema-badge badge-premium"><i class="fa-solid fa-crown"></i> Premium</span>
+                        <h3>Hello Kitty 🎀</h3>
+                        <p>Rosa vibrante com degradê suave. Fofo e estiloso.</p>
+                        <span class="tag-premium">Premium</span>
                     </div>
                 </div>
 
-                <!-- Galáxia -->
-                <div class="tema-card tema-galaxia">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo" style="color:#e040fb;"><i class="fa-solid fa-star"></i></div>
-                        <div class="hora-tema">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                        <div class="tema-detalhe-extra" style="color:#b39ddb;">✦ ✧ ✦ ✧ ✦</div>
-                    </div>
+                <div class="tema-card tema-btn" onclick="aplicarTema(this, 'linear-gradient(135deg,#0d0d2b,#1a0533)', '#a78bfa', '#a78bfa', 'Galáxia ✨', 'monospace')">
+                    <div class="tema-preview" style="background:linear-gradient(135deg,#0d0d2b,#1a0533); color:#a78bfa;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Galáxia ✨</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Roxo cósmico com brilho estelar</p>
-                        </div>
-                        <span class="tema-badge badge-premium"><i class="fa-solid fa-crown"></i> Premium</span>
+                        <h3>Galáxia ✨</h3>
+                        <p>Roxo cósmico com brilho estelar. Misterioso e bonito.</p>
+                        <span class="tag-premium">Premium</span>
                     </div>
                 </div>
 
-                <!-- Floresta Neon -->
-                <div class="tema-card tema-floresta">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo" style="color:#69f0ae;"><i class="fa-solid fa-leaf"></i></div>
-                        <div class="hora-tema">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                        <div class="tema-detalhe-extra" style="color:#69f0ae; font-size:9px; letter-spacing:3px;">NATURE MODE</div>
-                    </div>
+                <div class="tema-card tema-btn" onclick="aplicarTema(this, '#000000', '#ff00ff', '#ff00ff', 'Neon Cyberpunk', 'monospace')">
+                    <div class="tema-preview" style="background:#000; color:#ff00ff; font-family:monospace;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Floresta Neon</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Verde vibrante sobre fundo escuro</p>
-                        </div>
-                        <span class="tema-badge badge-premium"><i class="fa-solid fa-crown"></i> Premium</span>
+                        <h3>Neon Cyberpunk</h3>
+                        <p>Preto com neon magenta. Futurista e impactante.</p>
+                        <span class="tag-premium">Premium</span>
                     </div>
                 </div>
 
-                <!-- Pôr do Sol -->
-                <div class="tema-card tema-pordosol">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo" style="color:#ff9800;"><i class="fa-solid fa-sun"></i></div>
-                        <div class="hora-tema">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                        <div class="tema-detalhe-extra" style="color:#ffcc80; font-size:9px; letter-spacing:2px;">GOLDEN HOUR</div>
-                    </div>
+                <div class="tema-card tema-btn" onclick="aplicarTema(this, 'linear-gradient(135deg,#2d1b69,#e91e8c)', '#ffd700', '#ffd700', 'Rosé Gold ✦', 'monospace')">
+                    <div class="tema-preview" style="background:linear-gradient(135deg,#2d1b69,#e91e8c); color:#ffd700;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Pôr do Sol</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Tons quentes de laranja e âmbar</p>
-                        </div>
-                        <span class="tema-badge badge-premium"><i class="fa-solid fa-crown"></i> Premium</span>
+                        <h3>Rosé Gold ✦</h3>
+                        <p>Dourado rosado sobre fundo escuro. Sofisticado.</p>
+                        <span class="tag-premium">Premium</span>
                     </div>
                 </div>
 
-                <!-- Neon Cyberpunk -->
-                <div class="tema-card tema-neon">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo" style="color:#00ff88; text-shadow: 0 0 8px #00ff88;"><i class="fa-solid fa-bolt"></i></div>
-                        <div class="hora-tema" style="font-family:'Orbitron', monospace; font-size:28px; letter-spacing:3px;">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                        <div class="tema-detalhe-extra" style="color:#00ccff; font-size:9px; letter-spacing:3px; text-shadow: 0 0 6px #00ccff;">CYBER MODE</div>
-                    </div>
+                <div class="tema-card tema-btn" onclick="aplicarTema(this, 'linear-gradient(135deg,#e0f7fa,#b2ebf2)', '#006064', '#006064', 'Inverno Ártico ❄', 'sans-serif')">
+                    <div class="tema-preview" style="background:linear-gradient(135deg,#e0f7fa,#b2ebf2); color:#006064;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Neon Cyberpunk</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Efeito glow verde e ciano</p>
-                        </div>
-                        <span class="tema-badge badge-premium"><i class="fa-solid fa-crown"></i> Premium</span>
+                        <h3>Inverno Ártico ❄</h3>
+                        <p>Azul gelo cristalino. Limpo e refrescante.</p>
+                        <span class="tag-premium">Premium</span>
                     </div>
                 </div>
 
-                <!-- Rosé Gold — NOVO -->
-                <div class="tema-card tema-rosegold">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo" style="color:#c9956c;"><i class="fa-solid fa-gem"></i></div>
-                        <div class="hora-tema">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                        <div class="tema-detalhe-extra" style="color:#c9956c; font-size:9px; letter-spacing:3px;">ROSÉ GOLD</div>
-                    </div>
+                <div class="tema-card tema-btn" onclick="aplicarTema(this, '#3e2723', '#d7ccc8', '#d7ccc8', 'Café & Bege ☕', 'sans-serif')">
+                    <div class="tema-preview" style="background:#3e2723; color:#d7ccc8;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Rosé Gold ✦</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Dourado rosado elegante e sofisticado</p>
-                        </div>
-                        <span class="tema-badge badge-premium"><i class="fa-solid fa-crown"></i> Premium</span>
+                        <h3>Café & Bege ☕</h3>
+                        <p>Tons quentes e aconchegantes. Perfeito para trabalhar.</p>
+                        <span class="tag-premium">Premium</span>
                     </div>
                 </div>
 
-                <!-- Aquarela — NOVO -->
-                <div class="tema-card tema-aquarela">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo" style="color:#ff6b9d;"><i class="fa-solid fa-droplet"></i></div>
-                        <div class="hora-tema">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                        <div class="tema-detalhe-extra" style="color:#c77dff; font-size:9px; letter-spacing:2px;">WATERCOLOR</div>
-                    </div>
+                <div class="tema-card tema-btn" onclick="aplicarTema(this, 'linear-gradient(135deg,#fce4ec,#f8bbd0)', '#880e4f', '#880e4f', 'Aquarela Pastel', 'sans-serif')">
+                    <div class="tema-preview" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0); color:#880e4f;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Aquarela Pastel</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Lilás, rosa e azul suave</p>
-                        </div>
-                        <span class="tema-badge badge-premium"><i class="fa-solid fa-crown"></i> Premium</span>
+                        <h3>Aquarela Pastel</h3>
+                        <p>Rosa e lilás suaves. Delicado e romântico.</p>
+                        <span class="tag-premium">Premium</span>
                     </div>
                 </div>
 
-                <!-- Inverno Ártico — NOVO -->
-                <div class="tema-card tema-artico">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo" style="color:#a8d8ea;"><i class="fa-solid fa-snowflake"></i></div>
-                        <div class="hora-tema">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                        <div class="tema-detalhe-extra" style="color:#cce5f0; font-size:9px; letter-spacing:2px;">❄ ARCTIC ❄</div>
-                    </div>
+                <div class="tema-card tema-btn" onclick="aplicarTema(this, 'linear-gradient(135deg,#0a0a0a,#1a1a2e)', '#00d4ff', '#00d4ff', 'Oceano Profundo', 'monospace')">
+                    <div class="tema-preview" style="background:linear-gradient(135deg,#0a0a0a,#1a1a2e); color:#00d4ff; font-family:monospace;">12:00:00</div>
                     <div class="tema-info">
-                        <div>
-                            <h4>Inverno Ártico ❄</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Azul gelo cristalino e clean</p>
-                        </div>
-                        <span class="tema-badge badge-premium"><i class="fa-solid fa-crown"></i> Premium</span>
-                    </div>
-                </div>
-
-                <!-- Café & Bege — NOVO -->
-                <div class="tema-card tema-cafe">
-                    <div class="tema-preview">
-                        <div class="tema-icone-tipo" style="color:#c8a97e;"><i class="fa-solid fa-mug-hot"></i></div>
-                        <div class="hora-tema">14:32</div>
-                        <div class="data-tema">Sábado, 28 Mar</div>
-                        <div class="tema-detalhe-extra" style="color:#d4b896; font-size:9px; letter-spacing:2px;">COZY VIBES</div>
-                    </div>
-                    <div class="tema-info">
-                        <div>
-                            <h4>Café & Bege ☕</h4>
-                            <p style="font-size: 12px; color: var(--cor-texto-suave); margin-top: 3px;">Tons quentes e aconchegantes</p>
-                        </div>
-                        <span class="tema-badge badge-premium"><i class="fa-solid fa-crown"></i> Premium</span>
+                        <h3>Oceano Profundo</h3>
+                        <p>Azul ciano neon sobre fundo escuro. Tecnológico.</p>
+                        <span class="tag-premium">Premium</span>
                     </div>
                 </div>
 
             </div>
 
-            <div class="centralizado margem-topo">
-                <p style="color: var(--cor-texto-suave); margin-bottom: 20px;">Desbloqueie todos os temas premium com uma assinatura.</p>
-                <a href="planos.html" class="btn btn-primario"><i class="fa-solid fa-tag"></i> Ver Planos e Preços</a>
+            <div style="text-align:center; margin-top:30px;">
+                <a href="planos.html" class="btn btn-primario"><i class="fa-solid fa-crown"></i> Ver Planos Premium</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== COMPARATIVO ===== -->
-    <section>
+    <!-- TABELA COMPARATIVA -->
+    <section class="secao-cinza">
         <div class="container">
             <div class="titulo-secao">
-                <h2>O que cada plano <span>oferece</span>?</h2>
-                <div class="linha-divisoria"></div>
+                <h2>Comparativo de <span>Temas</span></h2>
             </div>
-
-            <table class="tabela-problemas">
+            <table class="tabela-comparativa">
                 <thead>
                     <tr>
-                        <th>Recurso</th>
-                        <th>Gratuito</th>
-                        <th>Básico</th>
-                        <th>Pro</th>
+                        <th>Tema</th>
+                        <th>Estilo</th>
+                        <th>Disponibilidade</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Temas gratuitos (3)</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                    </tr>
-                    <tr>
-                        <td>Temas premium (20+) incluindo Hello Kitty, Galáxia, Rosé Gold</td>
-                        <td style="color: var(--cor-destaque);">✗ Não</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                    </tr>
-                    <tr>
-                        <td>Tamanho personalizável</td>
-                        <td style="color: var(--cor-destaque);">✗ Não</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                    </tr>
-                    <tr>
-                        <td>Suporte a multi-monitor</td>
-                        <td style="color: var(--cor-destaque);">✗ Não</td>
-                        <td style="color: var(--cor-destaque);">✗ Não</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                    </tr>
-                    <tr>
-                        <td>Alarmes visuais</td>
-                        <td style="color: var(--cor-destaque);">✗ Não</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                    </tr>
-                    <tr>
-                        <td>Calendário integrado</td>
-                        <td style="color: var(--cor-destaque);">✗ Não</td>
-                        <td style="color: var(--cor-destaque);">✗ Não</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                    </tr>
-                    <tr>
-                        <td>Suporte prioritário</td>
-                        <td style="color: var(--cor-destaque);">✗ Não</td>
-                        <td style="color: var(--cor-destaque);">✗ Não</td>
-                        <td style="color: #2e7d32; font-weight:600;">✓ Sim</td>
-                    </tr>
+                    <tr><td>Noite Azul</td><td>Escuro clássico</td><td><span class="tag-gratis">Gratuito</span></td></tr>
+                    <tr><td>Minimalista Branco</td><td>Limpo e moderno</td><td><span class="tag-gratis">Gratuito</span></td></tr>
+                    <tr><td>Terminal Verde</td><td>Hacker / Tech</td><td><span class="tag-gratis">Gratuito</span></td></tr>
+                    <tr><td>Hello Kitty 🎀</td><td>Rosa fofo</td><td><span class="tag-premium">Premium</span></td></tr>
+                    <tr><td>Galáxia ✨</td><td>Roxo cósmico</td><td><span class="tag-premium">Premium</span></td></tr>
+                    <tr><td>Neon Cyberpunk</td><td>Futurista neon</td><td><span class="tag-premium">Premium</span></td></tr>
+                    <tr><td>Rosé Gold ✦</td><td>Sofisticado dourado</td><td><span class="tag-premium">Premium</span></td></tr>
+                    <tr><td>Inverno Ártico ❄</td><td>Azul gelo</td><td><span class="tag-premium">Premium</span></td></tr>
+                    <tr><td>Café & Bege ☕</td><td>Quente aconchegante</td><td><span class="tag-premium">Premium</span></td></tr>
+                    <tr><td>Aquarela Pastel</td><td>Rosa delicado</td><td><span class="tag-premium">Premium</span></td></tr>
+                    <tr><td>Oceano Profundo</td><td>Ciano tecnológico</td><td><span class="tag-premium">Premium</span></td></tr>
                 </tbody>
             </table>
-
-            <div class="centralizado margem-topo">
-                <a href="planos.html" class="btn btn-primario"><i class="fa-solid fa-tag"></i> Escolher meu Plano</a>
-            </div>
         </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
-    <section class="secao-escura">
+    <!-- FAQ -->
+    <section>
         <div class="container">
             <div class="titulo-secao">
-                <h2>Perguntas <span>Frequentes</span></h2>
-                <div class="linha-divisoria"></div>
+                <h2>Dúvidas sobre os <span>Temas</span></h2>
             </div>
             <div class="grid-2">
                 <div class="card faq-card">
-                    <div class="faq-icone"><i class="fa-solid fa-palette"></i></div>
-                    <h3>Posso trocar de tema quando quiser?</h3>
-                    <p>Sim! Você pode trocar o tema do seu relógio quantas vezes quiser, sem nenhuma limitação. A troca é instantânea e sem necessidade de reiniciar o programa.</p>
+                    <h3><i class="fa-solid fa-rotate" style="color:var(--cor-primaria); margin-right:8px;"></i>Posso trocar de tema a qualquer momento?</h3>
+                    <p>Sim! Você pode trocar de tema quantas vezes quiser. A troca é instantânea e não afeta nenhuma configuração.</p>
                 </div>
                 <div class="card faq-card">
-                    <div class="faq-icone"><i class="fa-solid fa-crown"></i></div>
-                    <h3>Os temas premium ficam disponíveis para sempre?</h3>
-                    <p>Sim! Enquanto sua assinatura estiver ativa, todos os temas premium ficam disponíveis. Se cancelar, você volta ao plano gratuito com os 3 temas básicos.</p>
+                    <h3><i class="fa-solid fa-lock" style="color:var(--cor-primaria); margin-right:8px;"></i>Os temas premium ficam disponíveis para sempre?</h3>
+                    <p>Enquanto sua assinatura estiver ativa, sim. Se cancelar, os temas premium ficam bloqueados mas os gratuitos continuam.</p>
                 </div>
                 <div class="card faq-card">
-                    <div class="faq-icone"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h3>Vão lançar novos temas?</h3>
-                    <p>Sim! Novos temas são lançados mensalmente. Assinantes do plano Pro têm acesso antecipado a todos os novos temas antes do lançamento oficial.</p>
+                    <h3><i class="fa-solid fa-lightbulb" style="color:var(--cor-primaria); margin-right:8px;"></i>Posso sugerir um novo tema?</h3>
+                    <p>Sim! Aceitamos sugestões de temas. Envie sua ideia pelo formulário de contato e nossa equipe avalia.</p>
                 </div>
                 <div class="card faq-card">
-                    <div class="faq-icone"><i class="fa-solid fa-sliders"></i></div>
-                    <h3>Posso personalizar as cores de um tema?</h3>
-                    <p>No plano Pro você pode ajustar as cores de qualquer tema para criar uma versão personalizada. Nos outros planos, os temas são usados como foram criados.</p>
+                    <h3><i class="fa-solid fa-mobile" style="color:var(--cor-primaria); margin-right:8px;"></i>Os temas funcionam em telas pequenas?</h3>
+                    <p>Sim! Todos os temas são responsivos e se adaptam a diferentes tamanhos de tela.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== RODAPÉ ===== -->
+    <!-- RODAPÉ -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-logo">Clock<span>Vibe</span></div>
-            <div class="footer-links">
-                <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
-                <a href="temas.html"><i class="fa-solid fa-palette"></i> Temas</a>
-                <a href="planos.html"><i class="fa-solid fa-tag"></i> Planos</a>
-            </div>
-            <p class="footer-copy">© 2026 ClockVibe — Projeto ADS 1º Semestre. Desenvolvido com HTML e CSS.</p>
+        <div class="footer-logo"><i class="fa-solid fa-clock" style="color:var(--cor-primaria);"></i> Clock<span>Vibe</span></div>
+        <div class="footer-links">
+            <a href="index.html">Início</a>
+            <a href="temas.html">Temas</a>
+            <a href="planos.html">Planos</a>
         </div>
+        <p class="footer-copy">© 2026 ClockVibe — Projeto ADS 1º Semestre. Desenvolvido com HTML e CSS.</p>
     </footer>
+
+    <!-- Script do relógio ao vivo e troca de temas -->
+    <script>
+        var temaAtual = {
+            bg: '#16213e',
+            cor: '#ffffff',
+            destaque: '#e63946',
+            nome: 'Noite Azul',
+            fonte: 'monospace'
+        };
+
+        function atualizarRelogioLive() {
+            var agora = new Date();
+            var h = String(agora.getHours()).padStart(2, '0');
+            var m = String(agora.getMinutes()).padStart(2, '0');
+            var s = String(agora.getSeconds()).padStart(2, '0');
+            document.getElementById('hora-live').textContent = h + ':' + m + ':' + s;
+            var dias = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+            var meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+            var agora2 = new Date();
+            document.getElementById('data-live').textContent = dias[agora2.getDay()] + ', ' + agora2.getDate() + ' de ' + meses[agora2.getMonth()] + ' de ' + agora2.getFullYear();
+        }
+
+        function aplicarTema(elemento, bg, cor, destaque, nome, fonte) {
+            // Remove ativo de todos
+            document.querySelectorAll('.tema-btn').forEach(function(el) {
+                el.classList.remove('ativo');
+            });
+            // Adiciona ativo no clicado
+            elemento.classList.add('ativo');
+
+            // Aplica no relógio ao vivo
+            var preview = document.getElementById('relogio-preview');
+            var hora = document.getElementById('hora-live');
+            var nomeLive = document.getElementById('tema-nome-live');
+
+            preview.style.background = bg;
+            preview.style.color = cor;
+            hora.style.color = cor;
+            hora.style.fontFamily = fonte === 'monospace' ? "'Orbitron', monospace" : "'Poppins', sans-serif";
+            hora.style.textShadow = '0 0 30px ' + destaque + '80';
+            document.getElementById('data-live').style.color = cor;
+            nomeLive.style.color = cor;
+            nomeLive.textContent = 'Tema: ' + nome;
+
+            temaAtual = { bg: bg, cor: cor, destaque: destaque, nome: nome, fonte: fonte };
+        }
+
+        atualizarRelogioLive();
+        setInterval(atualizarRelogioLive, 1000);
+    </script>
 
 </body>
 </html>
