@@ -6,177 +6,500 @@
     <title>Planos — ClockVibe</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Estilos específicos da página de planos */
+        .plans-hero {
+            background: linear-gradient(135deg, #0d1117, #1a0a1a);
+            padding: 120px 24px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .plans-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .plans-hero-content { position: relative; z-index: 2; }
+
+        /* Cards de planos */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 28px;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 56px rgba(0,0,0,0.4);
+        }
+
+        .plan-card.destaque {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, #1a0a0a, #1a1020);
+            box-shadow: 0 0 40px rgba(230,57,70,0.12);
+        }
+
+        .plan-card.destaque:hover {
+            box-shadow: 0 24px 56px rgba(230,57,70,0.25);
+        }
+
+        .plan-popular {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .plan-icon {
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .plan-icon-free { background: rgba(40,200,64,0.1); }
+        .plan-icon-basic { background: rgba(230,57,70,0.1); }
+        .plan-icon-pro { background: rgba(255,215,0,0.1); }
+
+        .plan-name {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .plan-price {
+            font-family: 'Orbitron', monospace;
+            font-size: 46px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .plan-price-free { color: #28c840; }
+        .plan-price-basic { color: var(--primary); }
+        .plan-price-pro { color: #ffd700; }
+
+        .plan-period {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        .plan-features {
+            flex: 1;
+            margin-bottom: 28px;
+        }
+
+        .plan-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .plan-feature:last-child { border-bottom: none; }
+
+        .plan-feature .check { color: #28c840; flex-shrink: 0; margin-top: 2px; }
+        .plan-feature .cross { color: var(--text-muted); flex-shrink: 0; margin-top: 2px; }
+
+        .plan-btn {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .plan-btn-free {
+            background: rgba(40,200,64,0.1);
+            color: #28c840;
+            border: 1px solid rgba(40,200,64,0.25);
+        }
+        .plan-btn-free:hover { background: rgba(40,200,64,0.2); transform: translateY(-2px); }
+
+        .plan-btn-basic {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 20px rgba(230,57,70,0.3);
+        }
+        .plan-btn-basic:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(230,57,70,0.45); }
+
+        .plan-btn-pro {
+            background: linear-gradient(135deg, #b8860b, #ffd700);
+            color: #1a1a00;
+            font-weight: 800;
+        }
+        .plan-btn-pro:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,215,0,0.3); }
+
+        /* Download section */
+        .download-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-section::before {
+            content: '';
+            position: absolute;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(230,57,70,0.05) 0%, transparent 70%);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .download-icon {
+            width: 80px; height: 80px;
+            background: rgba(230,57,70,0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: var(--primary);
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .plans-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .download-section { padding: 32px 24px; }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo">
-            <div class="logo-icone"><i class="fa-solid fa-clock"></i></div>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+            <div class="logo-icon"><i class="fa-solid fa-clock"></i></div>
             Clock<span>Vibe</span>
         </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="temas.html">Temas</a></li>
-                <li><a href="planos.html" class="ativo">Planos</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="hero" style="padding:50px 20px 40px;">
-        <h1>Planos e <span>Preços</span></h1>
-        <p>Escolha o plano ideal para você. Comece gratuitamente e faça upgrade quando quiser.</p>
-    </div>
-
-    <section>
-        <div class="container">
-            <div class="titulo-secao">
-                <h2>Escolha seu <span>Plano</span></h2>
-                <p>Sem fidelidade. Cancele quando quiser.</p>
-            </div>
-            <div class="grid-3">
-
-                <div class="plano-card">
-                    <div class="plano-nome"><i class="fa-solid fa-circle-check" style="color:#22c55e;margin-right:8px;"></i>Gratuito</div>
-                    <div class="plano-preco">R$0 <span>/mês</span></div>
-                    <ul class="plano-lista">
-                        <li>6 temas gratuitos</li>
-                        <li>Relógio ao vivo</li>
-                        <li>Funciona offline</li>
-                        <li>Suporte da comunidade</li>
-                        <li style="color:#ccc; text-decoration:line-through;">Temas premium</li>
-                        <li style="color:#ccc; text-decoration:line-through;">Novos temas</li>
-                    </ul>
-                    <a href="temas.html" class="btn btn-escuro" style="width:100%; text-align:center; display:block;">
-                        <i class="fa-solid fa-palette"></i> Começar Grátis
-                    </a>
-                </div>
-
-                <div class="plano-card destaque">
-                    <div class="plano-nome"><i class="fa-solid fa-star" style="color:#f59e0b;margin-right:8px;"></i>Básico</div>
-                    <div class="plano-preco">R$9 <span>/mês</span></div>
-                    <ul class="plano-lista">
-                        <li>Todos os temas gratuitos</li>
-                        <li>5 temas premium</li>
-                        <li>Relógio ao vivo</li>
-                        <li>Funciona offline</li>
-                        <li>Suporte por e-mail</li>
-                        <li>Novos temas mensais</li>
-                    </ul>
-                    <a href="temas.html" class="btn btn-primario" style="width:100%; text-align:center; display:block;">
-                        <i class="fa-solid fa-crown"></i> Assinar Básico
-                    </a>
-                </div>
-
-                <div class="plano-card">
-                    <div class="plano-nome"><i class="fa-solid fa-gem" style="color:#a855f7;margin-right:8px;"></i>Pro</div>
-                    <div class="plano-preco">R$19 <span>/mês</span></div>
-                    <ul class="plano-lista">
-                        <li>Todos os temas disponíveis</li>
-                        <li>Temas exclusivos Pro</li>
-                        <li>Relógio ao vivo</li>
-                        <li>Funciona offline</li>
-                        <li>Suporte prioritário</li>
-                        <li>Novos temas semanais</li>
-                    </ul>
-                    <a href="temas.html" class="btn btn-escuro" style="width:100%; text-align:center; display:block;">
-                        <i class="fa-solid fa-gem"></i> Assinar Pro
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="secao-cinza">
-        <div class="container">
-            <div class="titulo-secao">
-                <h2>Comparação <span>Completa</span></h2>
-            </div>
-            <table class="tabela-comparativa">
-                <thead>
-                    <tr>
-                        <th>Recurso</th>
-                        <th>Gratuito</th>
-                        <th>Básico</th>
-                        <th>Pro</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Temas gratuitos (6)</td><td>✓</td><td>✓</td><td>✓</td></tr>
-                    <tr><td>Temas premium (5)</td><td>✗</td><td>✓</td><td>✓</td></tr>
-                    <tr><td>Temas exclusivos Pro</td><td>✗</td><td>✗</td><td>✓</td></tr>
-                    <tr><td>Novos temas mensais</td><td>✗</td><td>✓</td><td>✓</td></tr>
-                    <tr><td>Novos temas semanais</td><td>✗</td><td>✗</td><td>✓</td></tr>
-                    <tr><td>Suporte</td><td>Comunidade</td><td>E-mail</td><td>Prioritário</td></tr>
-                    <tr><td>Funciona offline</td><td>✓</td><td>✓</td><td>✓</td></tr>
-                    <tr><td>Preço</td><td>Grátis</td><td>R$9/mês</td><td>R$19/mês</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="titulo-secao">
-                <h2>Problemas que <span>resolvemos</span></h2>
-            </div>
-            <table class="tabela-comparativa">
-                <thead>
-                    <tr><th>#</th><th>Problema</th><th>Perspectiva</th><th>Solução</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>Relógio do sistema sem personalização</td><td>Usuário</td><td>11 temas visuais disponíveis</td></tr>
-                    <tr><td>2</td><td>Interface monótona no desktop</td><td>Usuário</td><td>Temas com estilos variados</td></tr>
-                    <tr><td>3</td><td>Dificuldade de visualizar a hora</td><td>Usuário</td><td>Relógio grande em destaque</td></tr>
-                    <tr><td>4</td><td>Falta de opções gratuitas de qualidade</td><td>Usuário</td><td>Plano gratuito permanente</td></tr>
-                    <tr><td>5</td><td>Aplicativos pesados que travam</td><td>Usuário</td><td>HTML e CSS puro, leve e rápido</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section class="secao-cinza">
-        <div class="container">
-            <div class="titulo-secao">
-                <h2>Perguntas <span>Frequentes</span></h2>
-            </div>
-            <div class="grid-2">
-                <div class="card faq-card">
-                    <h3><i class="fa-solid fa-ban" style="color:var(--cor-primaria);margin-right:8px;"></i>Posso cancelar quando quiser?</h3>
-                    <p>Sim! Sem multa, sem fidelidade. Cancele a qualquer momento e continue usando os temas gratuitos.</p>
-                </div>
-                <div class="card faq-card">
-                    <h3><i class="fa-solid fa-credit-card" style="color:var(--cor-primaria);margin-right:8px;"></i>Quais formas de pagamento?</h3>
-                    <p>Aceitamos cartão de crédito, débito e Pix. O pagamento é mensal e automático.</p>
-                </div>
-                <div class="card faq-card">
-                    <h3><i class="fa-solid fa-arrow-up" style="color:var(--cor-primaria);margin-right:8px;"></i>Posso mudar de plano?</h3>
-                    <p>Sim! Faça upgrade ou downgrade a qualquer momento. A mudança é imediata.</p>
-                </div>
-                <div class="card faq-card">
-                    <h3><i class="fa-solid fa-gift" style="color:var(--cor-primaria);margin-right:8px;"></i>Tem período de teste?</h3>
-                    <p>Sim! O plano Básico tem 7 dias grátis para você testar antes de ser cobrado.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="cta-final">
-        <h2>Pronto para <span>personalizar?</span></h2>
-        <p>Comece grátis agora e faça upgrade quando quiser.</p>
-        <a href="temas.html" class="btn btn-primario"><i class="fa-solid fa-palette"></i> Ver Temas</a>
-        <a href="index.html" class="btn btn-secundario"><i class="fa-solid fa-house"></i> Voltar ao Início</a>
-    </div>
-
-    <footer>
-        <div class="footer-logo"><i class="fa-solid fa-clock" style="color:var(--cor-primaria);"></i> Clock<span>Vibe</span></div>
-        <div class="footer-links">
+        <div class="nav-links">
             <a href="index.html">Início</a>
             <a href="temas.html">Temas</a>
-            <a href="planos.html">Planos</a>
+            <a href="planos.html" class="ativo">Planos</a>
+            <a href="planos.html" class="nav-cta">Começar Grátis</a>
         </div>
-        <p class="footer-copy">© 2026 ClockVibe — Projeto ADS 1º Semestre. Desenvolvido com HTML e CSS.</p>
+    </nav>
+
+    <!-- ===== HERO PLANOS ===== -->
+    <section class="plans-hero">
+        <div class="plans-hero-content">
+            <span class="section-tag">Planos e Preços</span>
+            <h1 class="section-title" style="font-size:clamp(28px,5vw,52px);margin-bottom:16px;">Simples, transparente.<br><span>Sem surpresas.</span></h1>
+            <p class="section-desc" style="margin:0 auto;">Comece gratuitamente e faça upgrade quando quiser. Cancele a qualquer momento.</p>
+        </div>
+    </section>
+
+    <!-- ===== PLANOS ===== -->
+    <section style="background: var(--bg); padding: 80px 0;">
+        <div class="container">
+            <div class="plans-grid">
+
+                <!-- Plano Gratuito -->
+                <div class="plan-card">
+                    <div class="plan-icon plan-icon-free">
+                        <i class="fa-solid fa-clock" style="color:#28c840;"></i>
+                    </div>
+                    <div class="plan-name">Gratuito</div>
+                    <div class="plan-price plan-price-free">R$0</div>
+                    <div class="plan-period">para sempre</div>
+                    <div class="plan-features">
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Relógio em tempo real</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> 3 temas gratuitos</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Mini widgets básicos</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Funciona offline</div>
+                        <div class="plan-feature"><i class="fa-solid fa-xmark cross"></i> Temas premium</div>
+                        <div class="plan-feature"><i class="fa-solid fa-xmark cross"></i> CSS personalizado</div>
+                        <div class="plan-feature"><i class="fa-solid fa-xmark cross"></i> Suporte prioritário</div>
+                    </div>
+                    <a href="temas.html" class="plan-btn plan-btn-free">
+                        <i class="fa-solid fa-download"></i> Baixar Grátis
+                    </a>
+                </div>
+
+                <!-- Plano Básico — Destaque -->
+                <div class="plan-card destaque">
+                    <div class="plan-popular"><i class="fa-solid fa-fire"></i> Mais Popular</div>
+                    <div class="plan-icon plan-icon-basic">
+                        <i class="fa-solid fa-palette" style="color:var(--primary);"></i>
+                    </div>
+                    <div class="plan-name">Básico</div>
+                    <div class="plan-price plan-price-basic">R$9</div>
+                    <div class="plan-period">por mês</div>
+                    <div class="plan-features">
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Tudo do plano Gratuito</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> 8 temas premium</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Mini widgets extras</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Novos temas mensais</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Funciona offline</div>
+                        <div class="plan-feature"><i class="fa-solid fa-xmark cross"></i> CSS personalizado</div>
+                        <div class="plan-feature"><i class="fa-solid fa-xmark cross"></i> Suporte prioritário</div>
+                    </div>
+                    <a href="temas.html" class="plan-btn plan-btn-basic">
+                        <i class="fa-solid fa-rocket"></i> Assinar Básico
+                    </a>
+                </div>
+
+                <!-- Plano Pro -->
+                <div class="plan-card">
+                    <div class="plan-icon plan-icon-pro">
+                        <i class="fa-solid fa-crown" style="color:#ffd700;"></i>
+                    </div>
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price plan-price-pro">R$19</div>
+                    <div class="plan-period">por mês</div>
+                    <div class="plan-features">
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Tudo do plano Básico</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> CSS 100% personalizado</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Acesso antecipado a temas</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Suporte prioritário</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Sugerir novos temas</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Exportar configurações</div>
+                        <div class="plan-feature"><i class="fa-solid fa-check check"></i> Sem anúncios</div>
+                    </div>
+                    <a href="temas.html" class="plan-btn plan-btn-pro">
+                        <i class="fa-solid fa-crown"></i> Assinar Pro
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DOWNLOAD PARA DESKTOP ===== -->
+    <section style="background: var(--bg-card); padding: 80px 0; border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="download-section">
+                <div class="download-icon">
+                    <i class="fa-solid fa-desktop"></i>
+                </div>
+                <h2 class="section-title" style="margin-bottom:14px;position:relative;z-index:2;">Baixe para o <span>seu Desktop</span></h2>
+                <p style="font-size:17px;color:var(--text-muted);max-width:520px;margin:0 auto 36px;position:relative;z-index:2;line-height:1.7;">
+                    Salve o ClockVibe no seu computador e use como tela inicial do navegador. Funciona 100% offline — sem internet, sem instalação.
+                </p>
+                <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;">
+                    <a href="index.html" class="btn btn-red">
+                        <i class="fa-solid fa-download"></i> Baixar Versão Gratuita
+                    </a>
+                    <a href="temas.html" class="btn btn-outline">
+                        <i class="fa-solid fa-eye"></i> Ver Temas Primeiro
+                    </a>
+                </div>
+                <div style="display:flex;gap:32px;justify-content:center;margin-top:40px;flex-wrap:wrap;position:relative;z-index:2;">
+                    <div style="text-align:center;">
+                        <div style="font-size:28px;margin-bottom:6px;"><i class="fa-brands fa-windows" style="color:#00adef;"></i></div>
+                        <div style="font-size:13px;color:var(--text-muted);">Windows</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:28px;margin-bottom:6px;"><i class="fa-brands fa-apple" style="color:var(--text);"></i></div>
+                        <div style="font-size:13px;color:var(--text-muted);">macOS</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:28px;margin-bottom:6px;"><i class="fa-brands fa-linux" style="color:#ffd700;"></i></div>
+                        <div style="font-size:13px;color:var(--text-muted);">Linux</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:28px;margin-bottom:6px;"><i class="fa-brands fa-chrome" style="color:#4285f4;"></i></div>
+                        <div style="font-size:13px;color:var(--text-muted);">Chrome</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size:28px;margin-bottom:6px;"><i class="fa-brands fa-firefox" style="color:#ff7139;"></i></div>
+                        <div style="font-size:13px;color:var(--text-muted);">Firefox</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROBLEMAS E SOLUÇÕES ===== -->
+    <section class="problems-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Proposta de Valor</span>
+                <h2 class="section-title">Por que escolher o <span>ClockVibe</span>?</h2>
+            </div>
+            <div class="prob-list">
+                <div class="prob-row">
+                    <div class="prob-num">01</div>
+                    <div class="prob-text">
+                        <h4>Relógios sem personalização</h4>
+                        <p>Relógios padrão do sistema são genéricos e sem estilo.</p>
+                    </div>
+                    <div class="prob-solution">11 temas visuais únicos para escolher, do básico ao premium.</div>
+                    <span class="prob-tag tag-c">Cliente</span>
+                </div>
+                <div class="prob-row">
+                    <div class="prob-num">02</div>
+                    <div class="prob-text">
+                        <h4>Apps pesados que travam o PC</h4>
+                        <p>Widgets comuns consomem muita memória RAM.</p>
+                    </div>
+                    <div class="prob-solution">100% HTML e CSS — zero consumo de memória extra.</div>
+                    <span class="prob-tag tag-c">Cliente</span>
+                </div>
+                <div class="prob-row">
+                    <div class="prob-num">03</div>
+                    <div class="prob-text">
+                        <h4>Difícil monetizar temas digitais</h4>
+                        <p>Criadores não têm plataforma para vender temas visuais.</p>
+                    </div>
+                    <div class="prob-solution">Modelo freemium com planos Básico e Pro para receita recorrente.</div>
+                    <span class="prob-tag tag-e">Empresa</span>
+                </div>
+                <div class="prob-row">
+                    <div class="prob-num">04</div>
+                    <div class="prob-text">
+                        <h4>Falta de opções para nichos</h4>
+                        <p>Não existem relógios para fãs de K-pop, games, estética.</p>
+                    </div>
+                    <div class="prob-solution">Temas segmentados: Hello Kitty, Cyberpunk, Matrix, Rosé Gold e mais.</div>
+                    <span class="prob-tag tag-c">Cliente</span>
+                </div>
+                <div class="prob-row">
+                    <div class="prob-num">05</div>
+                    <div class="prob-text">
+                        <h4>Sem informações extras no widget</h4>
+                        <p>Relógios simples mostram só a hora, sem contexto adicional.</p>
+                    </div>
+                    <div class="prob-solution">Mini widgets com semana, dia do ano, fuso horário e formato.</div>
+                    <span class="prob-tag tag-c">Cliente</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Dúvidas sobre os <span>Planos</span></h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-q">Posso cancelar a qualquer momento?</div>
+                    <p class="faq-a">Sim! Não há fidelidade. Cancele quando quiser, sem taxas ou burocracia.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">O plano gratuito tem limite de tempo?</div>
+                    <p class="faq-a">Não. O plano gratuito é para sempre. Você pode usar os 3 temas básicos sem pagar nada.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Como funciona o pagamento?</div>
+                    <p class="faq-a">Cobrança mensal automática. Aceitamos cartão de crédito, débito e Pix.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Posso fazer upgrade ou downgrade?</div>
+                    <p class="faq-a">Sim! Mude de plano a qualquer momento. O valor é ajustado proporcionalmente.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">O que acontece se eu cancelar o Pro?</div>
+                    <p class="faq-a">Você volta para o plano Gratuito e mantém acesso aos 3 temas básicos normalmente.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Tem desconto para estudantes?</div>
+                    <p class="faq-a">Sim! Estudantes com e-mail acadêmico têm 50% de desconto no plano Básico. Entre em contato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Comece agora.<br><span>É de graça.</span></h2>
+            <p class="cta-desc">Sem cartão de crédito. Sem prazo. Sem complicação.</p>
+            <div class="cta-btns">
+                <a href="temas.html" class="btn btn-red"><i class="fa-solid fa-palette"></i> Ver Temas</a>
+                <a href="index.html" class="btn btn-outline"><i class="fa-solid fa-house"></i> Voltar ao Início</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-logo">
+                        <i class="fa-solid fa-clock" style="color:var(--primary)"></i>
+                        Clock<span>Vibe</span>
+                    </div>
+                    <p>Widget de relógio digital personalizável para desktop. Desenvolvido como projeto acadêmico de ADS.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <a href="index.html">Início</a>
+                    <a href="temas.html">Temas</a>
+                    <a href="planos.html">Planos</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Temas</h4>
+                    <a href="temas.html">Neon Dark</a>
+                    <a href="temas.html">Hello Kitty</a>
+                    <a href="temas.html">Cyberpunk</a>
+                    <a href="temas.html">Ver todos</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Planos</h4>
+                    <a href="planos.html">Gratuito</a>
+                    <a href="planos.html">Básico — R$9</a>
+                    <a href="planos.html">Pro — R$19</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">© 2026 ClockVibe — Projeto ADS 1º Semestre.</span>
+                <div class="footer-tags">
+                    <span class="f-tag">HTML5</span>
+                    <span class="f-tag">CSS3</span>
+                    <span class="f-tag">FontAwesome</span>
+                </div>
+            </div>
+        </div>
     </footer>
 
 </body>
