@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    <!-- CABEÇALHO -->
     <header>
         <a href="index.html" class="logo">
             <div class="logo-icone"><i class="fa-solid fa-clock"></i></div>
@@ -24,24 +23,21 @@
         </nav>
     </header>
 
-    <!-- HERO COM RELÓGIO -->
     <div class="hero">
-        <div class="relogio-badge">● AO VIVO</div>
+        <span class="relogio-badge">● AO VIVO</span>
         <h1>Seu Relógio, do seu <span>jeito</span></h1>
         <p>Personalize o relógio do seu computador com temas exclusivos. Simples, bonito e funcional.</p>
-
         <div class="relogio-container">
             <div class="relogio-widget" id="relogio">00:00:00</div>
             <div class="relogio-data" id="data-atual">Carregando...</div>
         </div>
-
-        <br>
-        <a href="temas.html" class="btn btn-primario"><i class="fa-solid fa-palette"></i> Ver Temas</a>
-        <a href="planos.html" class="btn btn-secundario"><i class="fa-solid fa-star"></i> Ver Planos</a>
+        <div class="hero-botoes">
+            <a href="temas.html" class="btn btn-primario"><i class="fa-solid fa-palette"></i> Ver Temas</a>
+            <a href="planos.html" class="btn btn-secundario"><i class="fa-solid fa-star"></i> Ver Planos</a>
+        </div>
     </div>
 
-    <!-- ESTATÍSTICAS -->
-    <section class="secao-cinza">
+    <section>
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
@@ -64,8 +60,7 @@
         </div>
     </section>
 
-    <!-- RECURSOS -->
-    <section>
+    <section class="secao-cinza">
         <div class="container">
             <div class="titulo-secao">
                 <h2>Por que usar o <span>ClockVibe?</span></h2>
@@ -73,41 +68,40 @@
             </div>
             <div class="grid-3">
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-palette" style="color:#fff;"></i></div>
+                    <div class="card-icone"><i class="fa-solid fa-palette"></i></div>
                     <h3>Temas Personalizáveis</h3>
                     <p>Escolha entre 11 temas visuais para deixar seu relógio com a sua cara.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-desktop" style="color:#fff;"></i></div>
+                    <div class="card-icone"><i class="fa-solid fa-desktop"></i></div>
                     <h3>Para Desktop</h3>
                     <p>Funciona diretamente no seu computador, sem precisar instalar nada.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-bolt" style="color:#fff;"></i></div>
+                    <div class="card-icone"><i class="fa-solid fa-bolt"></i></div>
                     <h3>Leve e Rápido</h3>
                     <p>Desenvolvido com HTML e CSS puro, sem travamentos ou lentidão.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-gift" style="color:#fff;"></i></div>
+                    <div class="card-icone"><i class="fa-solid fa-gift"></i></div>
                     <h3>Gratuito para Começar</h3>
                     <p>Plano gratuito com temas básicos disponíveis para todos os usuários.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-moon" style="color:#fff;"></i></div>
+                    <div class="card-icone"><i class="fa-solid fa-moon"></i></div>
                     <h3>Modo Escuro</h3>
                     <p>Temas com fundo escuro para quem trabalha à noite ou prefere menos luz.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-crown" style="color:#fff;"></i></div>
+                    <div class="card-icone"><i class="fa-solid fa-crown"></i></div>
                     <h3>Temas Premium</h3>
-                    <p>Desbloqueie temas exclusivos com o plano premium por apenas R$ 9/mês.</p>
+                    <p>Desbloqueie temas exclusivos com o plano premium por apenas R$9/mês.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROBLEMAS E SOLUÇÕES -->
-    <section class="secao-cinza">
+    <section>
         <div class="container">
             <div class="titulo-secao">
                 <h2>Problemas que o <span>ClockVibe</span> resolve</h2>
@@ -123,43 +117,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Relógio do sistema sem personalização</td>
-                        <td>Usuário</td>
-                        <td>11 temas visuais personalizáveis</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Interface monótona no desktop</td>
-                        <td>Usuário</td>
-                        <td>Temas com cores e estilos variados</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Dificuldade de visualizar a hora rapidamente</td>
-                        <td>Usuário</td>
-                        <td>Relógio grande e em destaque</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Falta de opções gratuitas de qualidade</td>
-                        <td>Usuário</td>
-                        <td>Plano gratuito permanente</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Aplicativos pesados que travam o computador</td>
-                        <td>Usuário</td>
-                        <td>Site leve em HTML e CSS puro</td>
-                    </tr>
+                    <tr><td>1</td><td>Relógio do sistema sem personalização</td><td>Usuário</td><td>11 temas visuais personalizáveis</td></tr>
+                    <tr><td>2</td><td>Interface monótona no desktop</td><td>Usuário</td><td>Temas com cores e estilos variados</td></tr>
+                    <tr><td>3</td><td>Dificuldade de visualizar a hora rapidamente</td><td>Usuário</td><td>Relógio grande e em destaque</td></tr>
+                    <tr><td>4</td><td>Falta de opções gratuitas de qualidade</td><td>Usuário</td><td>Plano gratuito permanente</td></tr>
+                    <tr><td>5</td><td>Aplicativos pesados que travam o computador</td><td>Usuário</td><td>Site leve em HTML e CSS puro</td></tr>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section>
+    <section class="secao-cinza">
         <div class="container">
             <div class="titulo-secao">
                 <h2>Perguntas <span>Frequentes</span></h2>
@@ -171,7 +139,7 @@
                 </div>
                 <div class="card faq-card">
                     <h3><i class="fa-solid fa-ban" style="color:var(--cor-primaria); margin-right:8px;"></i>Posso cancelar o plano premium?</h3>
-                    <p>Sim, você pode cancelar a qualquer momento. Seus temas premium ficam disponíveis até o fim do período pago.</p>
+                    <p>Sim! Sem multa ou fidelidade. Cancele quando quiser e seus temas gratuitos continuam disponíveis.</p>
                 </div>
                 <div class="card faq-card">
                     <h3><i class="fa-solid fa-laptop" style="color:var(--cor-primaria); margin-right:8px;"></i>Funciona em qual sistema operacional?</h3>
@@ -185,7 +153,6 @@
         </div>
     </section>
 
-    <!-- CTA FINAL -->
     <div class="cta-final">
         <h2>Comece <span>gratuitamente</span> agora</h2>
         <p>Experimente os temas gratuitos e faça upgrade quando quiser.</p>
@@ -193,7 +160,6 @@
         <a href="planos.html" class="btn btn-secundario"><i class="fa-solid fa-star"></i> Ver Planos</a>
     </div>
 
-    <!-- RODAPÉ -->
     <footer>
         <div class="footer-logo"><i class="fa-solid fa-clock" style="color:var(--cor-primaria);"></i> Clock<span>Vibe</span></div>
         <div class="footer-links">
@@ -204,21 +170,16 @@
         <p class="footer-copy">© 2026 ClockVibe — Projeto ADS 1º Semestre. Desenvolvido com HTML e CSS.</p>
     </footer>
 
-    <!-- Script do relógio -->
     <script>
         function atualizarRelogio() {
             var agora = new Date();
-            var h = String(agora.getHours()).padStart(2, '0');
-            var m = String(agora.getMinutes()).padStart(2, '0');
-            var s = String(agora.getSeconds()).padStart(2, '0');
-            document.getElementById('relogio').textContent = h + ':' + m + ':' + s;
+            var h = String(agora.getHours()).padStart(2,'0');
+            var m = String(agora.getMinutes()).padStart(2,'0');
+            var s = String(agora.getSeconds()).padStart(2,'0');
+            document.getElementById('relogio').textContent = h+':'+m+':'+s;
             var dias = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
             var meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-            var dia = dias[agora.getDay()];
-            var d = agora.getDate();
-            var mes = meses[agora.getMonth()];
-            var ano = agora.getFullYear();
-            document.getElementById('data-atual').textContent = dia + ', ' + d + ' de ' + mes + ' de ' + ano;
+            document.getElementById('data-atual').textContent = dias[agora.getDay()]+', '+agora.getDate()+' de '+meses[agora.getMonth()]+' de '+agora.getFullYear();
         }
         atualizarRelogio();
         setInterval(atualizarRelogio, 1000);
