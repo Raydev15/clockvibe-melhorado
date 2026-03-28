@@ -4,237 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClockVibe — Relógio Digital Personalizável</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- ===== CABEÇALHO ===== -->
+    <!-- CABEÇALHO -->
     <header>
-        <div class="header-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icone-box">
-                    <i class="fa-solid fa-clock"></i>
-                </div>
-                <span class="logo-texto">Clock<span>Vibe</span></span>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="ativo">Início</a></li>
-                    <li><a href="temas.html">Temas</a></li>
-                    <li><a href="planos.html">Planos</a></li>
-                </ul>
-            </nav>
-        </div>
+        <a href="index.html" class="logo">
+            <div class="logo-icone"><i class="fa-solid fa-clock"></i></div>
+            Clock<span>Vibe</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="ativo">Início</a></li>
+                <li><a href="temas.html">Temas</a></li>
+                <li><a href="planos.html">Planos</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero">
-        <div class="hero-container">
-            <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Novo — Versão 2.0</span>
-            <h1>Seu relógio,<br><span>do seu jeito</span></h1>
-            <p>Personalize o relógio digital da sua tela com temas exclusivos, fontes e cores. Produtividade com estilo — do minimalista ao Hello Kitty.</p>
+    <!-- HERO COM RELÓGIO -->
+    <div class="hero">
+        <div class="relogio-badge">● AO VIVO</div>
+        <h1>Seu Relógio, do seu <span>jeito</span></h1>
+        <p>Personalize o relógio do seu computador com temas exclusivos. Simples, bonito e funcional.</p>
 
-            <div class="relogio-demo">
-                <div class="relogio-label"><i class="fa-solid fa-circle" style="color:#69f0ae; font-size:8px;"></i> AO VIVO</div>
-                <div class="hora">14:32:07</div>
-                <div class="data">Sábado, 28 de Março de 2026</div>
-            </div>
-
-            <div class="grupo-botoes">
-                <a href="temas.html" class="btn btn-primario"><i class="fa-solid fa-palette"></i> Ver Temas</a>
-                <a href="planos.html" class="btn btn-secundario"><i class="fa-solid fa-tag"></i> Conhecer Planos</a>
-            </div>
+        <div class="relogio-container">
+            <div class="relogio-widget" id="relogio">00:00:00</div>
+            <div class="relogio-data" id="data-atual">Carregando...</div>
         </div>
-    </section>
 
-    <!-- ===== ESTATÍSTICAS ===== -->
-    <section class="secao-stats">
+        <br>
+        <a href="temas.html" class="btn btn-primario"><i class="fa-solid fa-palette"></i> Ver Temas</a>
+        <a href="planos.html" class="btn btn-secundario"><i class="fa-solid fa-star"></i> Ver Planos</a>
+    </div>
+
+    <!-- ESTATÍSTICAS -->
+    <section class="secao-cinza">
         <div class="container">
             <div class="stats-grid">
-                <div class="stat-box">
-                    <span class="stat-numero">20+</span>
-                    <span class="stat-label">Temas disponíveis</span>
+                <div class="stat-card">
+                    <div class="stat-numero">11+</div>
+                    <div class="stat-label">Temas Disponíveis</div>
                 </div>
-                <div class="stat-box">
-                    <span class="stat-numero">5MB</span>
-                    <span class="stat-label">Uso de memória</span>
+                <div class="stat-card">
+                    <div class="stat-numero">3</div>
+                    <div class="stat-label">Planos de Assinatura</div>
                 </div>
-                <div class="stat-box">
-                    <span class="stat-numero">3</span>
-                    <span class="stat-label">Planos de assinatura</span>
+                <div class="stat-card">
+                    <div class="stat-numero">100%</div>
+                    <div class="stat-label">Funciona Offline</div>
                 </div>
-                <div class="stat-box">
-                    <span class="stat-numero">100%</span>
-                    <span class="stat-label">Sem anúncios</span>
+                <div class="stat-card">
+                    <div class="stat-numero">R$0</div>
+                    <div class="stat-label">Para Começar</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== RECURSOS ===== -->
+    <!-- RECURSOS -->
     <section>
         <div class="container">
             <div class="titulo-secao">
-                <h2>Por que escolher o <span>ClockVibe</span>?</h2>
-                <div class="linha-divisoria"></div>
-                <p>Recursos pensados para quem valoriza produtividade e personalização no dia a dia.</p>
+                <h2>Por que usar o <span>ClockVibe?</span></h2>
+                <p>Recursos pensados para quem quer um relógio bonito e prático no desktop.</p>
             </div>
-
             <div class="grid-3">
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-palette"></i></div>
-                    <h3>Temas Exclusivos</h3>
-                    <p>Mais de 20 temas visuais para personalizar seu relógio. Do minimalista ao neon, encontre o estilo perfeito.</p>
+                    <div class="card-icone"><i class="fa-solid fa-palette" style="color:#fff;"></i></div>
+                    <h3>Temas Personalizáveis</h3>
+                    <p>Escolha entre 11 temas visuais para deixar seu relógio com a sua cara.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="card-icone"><i class="fa-solid fa-desktop" style="color:#fff;"></i></div>
+                    <h3>Para Desktop</h3>
+                    <p>Funciona diretamente no seu computador, sem precisar instalar nada.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icone"><i class="fa-solid fa-bolt" style="color:#fff;"></i></div>
                     <h3>Leve e Rápido</h3>
-                    <p>Consome mínimo de recursos do computador. Roda em segundo plano sem travar nenhum programa.</p>
+                    <p>Desenvolvido com HTML e CSS puro, sem travamentos ou lentidão.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-desktop"></i></div>
-                    <h3>Multi-monitor</h3>
-                    <p>Suporte a múltiplos monitores. Configure um tema diferente para cada tela do seu setup.</p>
+                    <div class="card-icone"><i class="fa-solid fa-gift" style="color:#fff;"></i></div>
+                    <h3>Gratuito para Começar</h3>
+                    <p>Plano gratuito com temas básicos disponíveis para todos os usuários.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-bell"></i></div>
-                    <h3>Alarmes Visuais</h3>
-                    <p>Configure alarmes que mudam a cor do relógio para te avisar de compromissos importantes.</p>
+                    <div class="card-icone"><i class="fa-solid fa-moon" style="color:#fff;"></i></div>
+                    <h3>Modo Escuro</h3>
+                    <p>Temas com fundo escuro para quem trabalha à noite ou prefere menos luz.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-calendar-days"></i></div>
-                    <h3>Calendário Integrado</h3>
-                    <p>Visualize a data, dia da semana e próximos eventos diretamente no widget do relógio.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icone"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>Sem Anúncios</h3>
-                    <p>Planos premium sem nenhuma propaganda. Experiência limpa e focada para o seu trabalho.</p>
+                    <div class="card-icone"><i class="fa-solid fa-crown" style="color:#fff;"></i></div>
+                    <h3>Temas Premium</h3>
+                    <p>Desbloqueie temas exclusivos com o plano premium por apenas R$ 9/mês.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== PROBLEMAS E SOLUÇÕES ===== -->
-    <section class="secao-escura">
+    <!-- PROBLEMAS E SOLUÇÕES -->
+    <section class="secao-cinza">
         <div class="container">
             <div class="titulo-secao">
                 <h2>Problemas que o <span>ClockVibe</span> resolve</h2>
-                <div class="linha-divisoria"></div>
-                <p>Identificamos os principais desafios dos usuários e criamos soluções simples e eficazes.</p>
+                <p>Identificamos os principais desafios e criamos soluções simples.</p>
             </div>
-
-            <div class="problema-item">
-                <h4><i class="fa-solid fa-circle-xmark"></i> Problema 1 — Relógios genéricos e sem personalidade</h4>
-                <p>O relógio padrão do Windows/Mac não permite nenhuma customização visual, deixando a área de trabalho sem identidade.</p>
-                <span class="solucao-tag"><i class="fa-solid fa-circle-check"></i> Solução: Mais de 20 temas visuais personalizáveis</span>
-            </div>
-
-            <div class="problema-item">
-                <h4><i class="fa-solid fa-circle-xmark"></i> Problema 2 — Dificuldade de ver a hora em telas grandes</h4>
-                <p>Em monitores grandes ou com resolução alta, o relógio do sistema fica muito pequeno e difícil de ler rapidamente.</p>
-                <span class="solucao-tag"><i class="fa-solid fa-circle-check"></i> Solução: Tamanho e posição totalmente ajustáveis</span>
-            </div>
-
-            <div class="problema-item">
-                <h4><i class="fa-solid fa-circle-xmark"></i> Problema 3 — Falta de integração com agenda</h4>
-                <p>Usuários precisam abrir outro aplicativo para verificar a data ou próximos compromissos durante o trabalho.</p>
-                <span class="solucao-tag"><i class="fa-solid fa-circle-check"></i> Solução: Widget com calendário e eventos integrados</span>
-            </div>
-
-            <div class="problema-item">
-                <h4><i class="fa-solid fa-circle-xmark"></i> Problema 4 — Aplicativos pesados que travam o computador</h4>
-                <p>Muitos widgets de relógio consomem muita memória RAM e processador, prejudicando o desempenho geral.</p>
-                <span class="solucao-tag"><i class="fa-solid fa-circle-check"></i> Solução: Tecnologia leve — menos de 5MB de RAM</span>
-            </div>
-
-            <div class="problema-item">
-                <h4><i class="fa-solid fa-circle-xmark"></i> Problema 5 — Anúncios invasivos nas versões gratuitas</h4>
-                <p>Aplicativos gratuitos similares exibem propagandas que distraem e prejudicam a experiência do usuário.</p>
-                <span class="solucao-tag"><i class="fa-solid fa-circle-check"></i> Solução: Plano gratuito sem anúncios, premium com recursos extras</span>
-            </div>
-
-            <div class="centralizado margem-topo">
-                <a href="planos.html" class="btn btn-primario"><i class="fa-solid fa-tag"></i> Ver Planos e Preços</a>
-            </div>
+            <table class="tabela-comparativa">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Problema</th>
+                        <th>Quem sofre</th>
+                        <th>Solução no ClockVibe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Relógio do sistema sem personalização</td>
+                        <td>Usuário</td>
+                        <td>11 temas visuais personalizáveis</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Interface monótona no desktop</td>
+                        <td>Usuário</td>
+                        <td>Temas com cores e estilos variados</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Dificuldade de visualizar a hora rapidamente</td>
+                        <td>Usuário</td>
+                        <td>Relógio grande e em destaque</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Falta de opções gratuitas de qualidade</td>
+                        <td>Usuário</td>
+                        <td>Plano gratuito permanente</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Aplicativos pesados que travam o computador</td>
+                        <td>Usuário</td>
+                        <td>Site leve em HTML e CSS puro</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
-    <!-- ===== PERGUNTAS FREQUENTES ===== -->
+    <!-- FAQ -->
     <section>
         <div class="container">
             <div class="titulo-secao">
                 <h2>Perguntas <span>Frequentes</span></h2>
-                <div class="linha-divisoria"></div>
-                <p>Tudo que você precisa saber sobre o ClockVibe antes de começar.</p>
             </div>
-
             <div class="grid-2">
                 <div class="card faq-card">
-                    <div class="faq-icone"><i class="fa-solid fa-download"></i></div>
-                    <h3>O ClockVibe é um programa para instalar?</h3>
-                    <p>Sim! O ClockVibe é um pequeno aplicativo que você instala no seu computador (Windows ou Mac). Depois de instalado, o relógio aparece na sua tela e você pode personalizar o visual como quiser.</p>
+                    <h3><i class="fa-solid fa-wifi-slash" style="color:var(--cor-primaria); margin-right:8px;"></i>O ClockVibe funciona offline?</h3>
+                    <p>Sim! Após baixar, o relógio funciona completamente sem internet. Só precisa de conexão para baixar novos temas.</p>
                 </div>
                 <div class="card faq-card">
-                    <div class="faq-icone"><i class="fa-solid fa-infinity"></i></div>
-                    <h3>O plano gratuito tem limite de tempo?</h3>
-                    <p>Não! O plano gratuito é para sempre, sem prazo de validade. Você pode usar os 3 temas básicos gratuitamente pelo tempo que quiser, sem precisar de cartão de crédito.</p>
+                    <h3><i class="fa-solid fa-ban" style="color:var(--cor-primaria); margin-right:8px;"></i>Posso cancelar o plano premium?</h3>
+                    <p>Sim, você pode cancelar a qualquer momento. Seus temas premium ficam disponíveis até o fim do período pago.</p>
                 </div>
                 <div class="card faq-card">
-                    <div class="faq-icone"><i class="fa-solid fa-heart"></i></div>
-                    <h3>Tem tema Hello Kitty disponível?</h3>
-                    <p>Sim! O tema Hello Kitty é um dos nossos temas premium mais populares, com fundo rosa e laço decorativo. Está disponível nos planos Básico e Pro. Veja a prévia na página de Temas!</p>
+                    <h3><i class="fa-solid fa-laptop" style="color:var(--cor-primaria); margin-right:8px;"></i>Funciona em qual sistema operacional?</h3>
+                    <p>Funciona em qualquer sistema que tenha um navegador: Windows, Mac e Linux.</p>
                 </div>
                 <div class="card faq-card">
-                    <div class="faq-icone"><i class="fa-solid fa-gauge-high"></i></div>
-                    <h3>O ClockVibe deixa o computador lento?</h3>
-                    <p>Não! O ClockVibe foi desenvolvido para ser extremamente leve, consumindo menos de 5MB de memória RAM. Ele roda em segundo plano sem afetar o desempenho de nenhum outro programa.</p>
+                    <h3><i class="fa-solid fa-brush" style="color:var(--cor-primaria); margin-right:8px;"></i>Como faço para trocar de tema?</h3>
+                    <p>Acesse a página de Temas, clique no tema desejado e ele será aplicado automaticamente ao seu relógio.</p>
                 </div>
-                <div class="card faq-card">
-                    <div class="faq-icone"><i class="fa-solid fa-rotate-left"></i></div>
-                    <h3>Posso cancelar minha assinatura a qualquer momento?</h3>
-                    <p>Sim! Você pode cancelar quando quiser, sem multas ou taxas. Após o cancelamento, o acesso premium continua ativo até o fim do período já pago.</p>
-                </div>
-                <div class="card faq-card">
-                    <div class="faq-icone"><i class="fa-solid fa-display"></i></div>
-                    <h3>Funciona em mais de um monitor?</h3>
-                    <p>O suporte a múltiplos monitores está disponível no plano Pro. Com ele, você pode colocar um relógio diferente em cada tela do seu setup, com temas diferentes em cada monitor.</p>
-                </div>
-            </div>
-
-            <div class="centralizado margem-topo">
-                <a href="temas.html" class="btn btn-primario"><i class="fa-solid fa-eye"></i> Ver Todos os Temas</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== CTA FINAL ===== -->
-    <section class="cta-final">
-        <div class="container centralizado">
-            <div class="cta-icone">🕐</div>
-            <h2>Pronto para personalizar seu relógio?</h2>
-            <p>Comece gratuitamente. Sem cartão de crédito necessário.</p>
-            <div class="grupo-botoes">
-                <a href="temas.html" class="btn btn-branco-solido"><i class="fa-solid fa-palette"></i> Explorar Temas</a>
-                <a href="planos.html" class="btn btn-outline-branco"><i class="fa-solid fa-tag"></i> Ver Planos</a>
-            </div>
-        </div>
-    </section>
+    <!-- CTA FINAL -->
+    <div class="cta-final">
+        <h2>Comece <span>gratuitamente</span> agora</h2>
+        <p>Experimente os temas gratuitos e faça upgrade quando quiser.</p>
+        <a href="temas.html" class="btn btn-primario"><i class="fa-solid fa-palette"></i> Explorar Temas</a>
+        <a href="planos.html" class="btn btn-secundario"><i class="fa-solid fa-star"></i> Ver Planos</a>
+    </div>
 
-    <!-- ===== RODAPÉ ===== -->
+    <!-- RODAPÉ -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-logo">Clock<span>Vibe</span></div>
-            <div class="footer-links">
-                <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
-                <a href="temas.html"><i class="fa-solid fa-palette"></i> Temas</a>
-                <a href="planos.html"><i class="fa-solid fa-tag"></i> Planos</a>
-            </div>
-            <p class="footer-copy">© 2026 ClockVibe — Projeto ADS 1º Semestre. Desenvolvido com HTML e CSS.</p>
+        <div class="footer-logo"><i class="fa-solid fa-clock" style="color:var(--cor-primaria);"></i> Clock<span>Vibe</span></div>
+        <div class="footer-links">
+            <a href="index.html">Início</a>
+            <a href="temas.html">Temas</a>
+            <a href="planos.html">Planos</a>
         </div>
+        <p class="footer-copy">© 2026 ClockVibe — Projeto ADS 1º Semestre. Desenvolvido com HTML e CSS.</p>
     </footer>
+
+    <!-- Script do relógio -->
+    <script>
+        function atualizarRelogio() {
+            var agora = new Date();
+            var h = String(agora.getHours()).padStart(2, '0');
+            var m = String(agora.getMinutes()).padStart(2, '0');
+            var s = String(agora.getSeconds()).padStart(2, '0');
+            document.getElementById('relogio').textContent = h + ':' + m + ':' + s;
+            var dias = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
+            var meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+            var dia = dias[agora.getDay()];
+            var d = agora.getDate();
+            var mes = meses[agora.getMonth()];
+            var ano = agora.getFullYear();
+            document.getElementById('data-atual').textContent = dia + ', ' + d + ' de ' + mes + ' de ' + ano;
+        }
+        atualizarRelogio();
+        setInterval(atualizarRelogio, 1000);
+    </script>
 
 </body>
 </html>
